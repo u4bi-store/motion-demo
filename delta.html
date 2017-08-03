@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <haed>
+        <meta charset="utf-8">
+        <title> mojs - delta </title>
+
+        <script src="http://cdn.jsdelivr.net/mojs/latest/mo.min.js"></script>
+
+    </haed>
+    <body>
+
+        <script>
+
+            console.log(mojs);
+
+            var shape = new mojs.Shape({
+                shape:        'circle',
+                scale:         { 0 : 2 },          // 모션 스케일 ( 시작 지점 : 끝나는 지점 )
+                fill:         { 'red': 'yellow' }, // 모션 컬러 ( 시작 지점 : 끝나는 지점 )  
+                duration:      3000,               // 모션 소요 시간
+                delay:         1000,               // 모션 종료 후 딜레이
+                easing:        'cubic.out',        // 모션 유형
+                repeat:        999                 // 모션 반복횟수
+            }).play();
+
+
+
+            var circle = new mojs.Shape({
+            shape:        'circle',
+            scale:        { 0 : 1 },
+            top:          '20%',
+            left:         '25%',
+            fill:         { 'red': 'yellow' },
+            radius:       25,
+            duration:     2000,
+            repeat:       999,
+            }).play();
+
+
+            var rect = new mojs.Shape({
+            shape:        'rect',
+            top:          '20%',
+            left:         '50%',
+            fill:         'none',
+            radius:       25,
+            stroke:       { 'rgba(0,255,255, 1)' : 'magenta' },
+            strokeWidth:  { 40: 0 },               // 모션 겉면 ( 시작 지점 : 끝나는 지점 )
+            strokeDasharray: '100%',
+            strokeDashoffset: { '-100%' : '100%' },
+            angle:        { 0: 180 },              // 모션 앵글 ( 시작 지점  : 끝나는 지점 )
+            duration:     2000,
+            repeat:       999,
+            }).play();
+
+
+            var polygon = new mojs.Shape({
+            shape:        'polygon',
+            points:       5, // 폴리곤 모형의 곡선
+            top:          '20%',
+            left:         '75%',
+            fill:         { 'deeppink' : '#00F87F' },
+            x:            { 'rand(-100%, -200%)' : 0  },
+            angle:        { 0: 'rand(0, 360)' }, // rand(0, 360) : 랜덤 0 ~ 360 지점 
+            radius:       25,
+            duration:     2000,
+            repeat:       999,
+            }).play();
+
+        </script>
+    </body>
+</html>
