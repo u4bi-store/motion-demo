@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <haed>
+        <meta charset="utf-8">
+        <title> mojs - interface </title>
+
+        <script src="http://cdn.jsdelivr.net/mojs/latest/mo.min.js"></script>
+
+    </haed>
+    <body>
+
+        <script>
+
+            console.log(mojs);
+
+            var shape = new mojs.Shape({
+                shape:          'rect',
+                stroke:         'cyan',
+                angle:          { [-360] : 0 },
+                
+                // properties
+                duration:       600,
+                delay:          200,
+                repeat:         0,
+                speed:          1,
+                yoyo:           false,
+                easing:         'sin.out',
+                backwardEasing: 'sin.in',
+                yoyo:           true,
+
+                // callbacks
+                onStart (isForward, isYoyo) {
+                    console.log(isForward, isYoyo);
+                },
+                onRepeatStart (isForward, isYoyo) {
+                    console.log(isForward, isYoyo);
+                },
+                onUpdate (ep, p, isForward, isYoyo) {
+                    console.log(isForward, isYoyo);
+                },
+                onRepeatComplete (isForward, isYoyo) {
+                    console.log(isForward, isYoyo);
+                },
+                onComplete (isForward, isYoyo) {
+                    console.log(isForward, isYoyo);
+                },
+                onProgress (p, isForward, isYoyo) {
+                    console.log(p, isForward, isYoyo);
+                },
+                onRefresh (isBefore) {
+                    console.log(isBefore);
+                },
+                onPlaybackStart () {},
+                onPlaybackPause () {},
+                onPlaybackStop () {},
+                onPlaybackComplete () {},
+                })
+                // methods
+                .play();
+                // .playBackward()
+                // .pause()
+                // .stop()
+                // .replay()
+                // .replayBackward()
+                // .setProgress()
+                // .setSpeed()
+                // .reset()
+
+
+        </script>
+    </body>
+</html>
