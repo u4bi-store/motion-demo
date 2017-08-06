@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <haed>
+        <meta charset="utf-8">
+        <title> mojs - click </title>
+
+        <script src="http://cdn.jsdelivr.net/mojs/latest/mo.min.js"></script>
+
+    </haed>
+    <body>
+
+        <script>
+
+            console.log(mojs);
+
+            var circle = new mojs.Shape({
+                fill:           'none',
+                radius:         25,
+                strokeWidth:    { 50 : 0 },
+                scale:          { 0: 1 },
+                angle:          { '-50' : 0 },
+                duration:       500,
+                left: 0,        top: 0,
+                easing: 'cubic.out',
+                stroke: 'red'
+            });
+
+
+            document.addEventListener('click', function(e){
+                circle.tune({
+                    x : e.pageX,
+                    y : e.pageY
+                }).replay();
+            });
+            
+            
+        </script>
+    </body>
+</html>
