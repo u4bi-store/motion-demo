@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <haed>
+        <meta charset="utf-8">
+        <title> mojs - button-animation </title>
+
+        <script src="http://cdn.jsdelivr.net/mojs/latest/mo.min.js"></script>
+        <style>
+            div{
+                width: 200px;
+                height: 200px;
+                text-align: center;
+            }
+            
+            button{
+                margin:0;
+                padding: 0;
+            }
+            
+        </style>
+    </haed>
+    <body>
+        
+        <div>
+            <button>
+                <span> 버튼 </span>
+            </button>
+        </div>
+
+        <script>
+
+            console.log(mojs);
+
+            var button = document.querySelector('button'),
+                tween;
+
+            tween = new mojs.Shape({
+                parent: button,
+                duration: 750,
+                shape: 'circle',
+                radius: {0: 50},
+                fill: 'transparent',
+                stroke: '#988ADE',
+                strokeWidth: {15:0},
+                top : button.offsetTop + button.offsetWidth/2,
+                left : button.offsetLeft + button.offsetHeight/2,
+                easing: mojs.easing.bezier(0, 1, 0.5, 1),
+                onUpdate: function(e) {
+                    // console.log(e);
+
+                    button.style.color = e === 1 ? '#000000' : '#FF0000';
+
+                }                
+            });
+
+            button.addEventListener('click', function(e) {
+                console.log(e);
+                
+                tween.replay();
+            });                        
+            
+        </script>
+    </body>
+</html>
