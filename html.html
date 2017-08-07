@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <haed>
+        <meta charset="utf-8">
+        <title> mojs - html </title>
+
+        <script src="http://cdn.jsdelivr.net/mojs/latest/mo.min.js"></script>
+        <style>
+
+            #test{
+                position: absolute;
+                margin-left: 50%;
+                margin-top : 50%;
+                width: 50px;
+                height: 50px;
+                background: red;
+                color: #fff;
+            }
+
+        </style>
+
+    </haed>
+    <body>
+
+        <div id="test">TEST</div>
+        
+        <script>
+
+            console.log(mojs);
+
+            var html = new mojs.Html({
+                el: '#test',
+                x: { 0: -200, duration: 1000, delay: 200, easing: 'cubic.out', onComplete(){
+                    console.log('x prop complete');
+
+                }},
+                y: { 0: -200, duration: 2000, onComplete(){
+                    console.log('y prop complete');
+                }},                
+            }).play();
+
+
+
+        </script>
+    </body>
+</html>
