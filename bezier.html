@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <haed>
+        <meta charset="utf-8">
+        <title> mojs - bezier </title>
+
+        <script src="http://cdn.jsdelivr.net/mojs/latest/mo.min.js"></script>
+        
+    </haed>
+    <body>
+        
+        <script>
+
+            console.log(mojs);
+
+            var curve = mojs.easing.bezier( 0.910, 0.000, 0.110, 1.005  );
+
+            var shape = new mojs.Shape({
+                    radius:       10,
+                    x:            { [-125]  : 125, easing: curve },
+                    y:            { [-125]  : 125, easing: curve },
+                    delay:        100,
+                    duration:     2000,
+                    repeat:       999
+                }).play();
+
+        </script>
+    </body>
+</html>
